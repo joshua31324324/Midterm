@@ -1,9 +1,23 @@
+from calculator.operations import add, subtract, multiply, divide
+
 class Calculation:
-    def __init__(self, a, b, operation):
+    def __init__(self, a: Decimal, b: Decimal, operation: Callable[[Decimal, Decimal], Decimal]):
         self.a = a
         self.b = b
-        self.operation = operation  # Store the operation function
+        self.operation = operation
+    
+    # Static method to create a new instance of Calculation
+    # This method provides an alternative constructor that can be used without instantiating the class directly
+    @staticmethod    
+    def create(a: Decimal, b: Decimal, operation: Callable[[Decimal, Decimal], Decimal]):
+        return Calculation(a, b, operation)
 
-    def get_result(self):
-        # Call the stored operation with a and b
+    # Method to perform the calculation stored in this object
+    def perform(self) -> Decimal:
+        """Perform the stored calculation and return the result."""
         return self.operation(self.a, self.b)
+
+    # Special method to provide a string representation of the Calculation instance
+    def __repr__(self):
+        """Return a simplified string representation of the calculation."""
+        return f"Calculation({self.a}, {self.b}, {self.operation.__name__})"
