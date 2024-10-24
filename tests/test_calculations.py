@@ -1,11 +1,11 @@
+'''My Calculator Test'''
+
 from decimal import Decimal
 from calculator.calculation import Calculation
 from calculator.calculations import Calculations
-from calculator.operations import add, subtract
+from calculator.operations import add, subtract, multiply, divide
 import pytest
 
-'''My Calculator Test'''
-from calculator.operations import add, multiply, subtract, divide
 
 def test_addition():
     '''Test that addition function works '''
