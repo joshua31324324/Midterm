@@ -22,4 +22,13 @@ You must also create a GitHub account.
   5. Install the python dependencies "pytest", "pylint", and "cov" using pip. They are used to test your files. You do so by inputting "pip3 install pytest pytest-pylint pytest-cov" in the command line.
   6. Freeze the requirements and create requirements.txt file. This is done so your project can be installed elsewhere. You do this by inputting "pip3 freeze > requirements.txt".
      - If you want to copy/clone the original repository here, use this instead: "pip3 install -r requirments.txt". It'll install the specific library/dependency requirements for your project.
-     
+## Creating the Calculator
+Now that you've set up your environment, it's time to create the calculator.
+  1. Create the "tests" and "calculator" folder (you may name them whatever you want as long as you remain consistent). The calculator folder will contain the files for your application, while the tests folder will contain the files for your tests.
+  2. Add __init__.py files to both folders so the Python interpreter recognizes them as packages.
+     - While you don't have to, it is recommended to create a Calculator class so it is easier to work with class-level date. See __init__.py file in "calculator" folder.
+  3. Add files detailing the calculator's operations (Addition, subtraction, multiplication, and division). Observe the operations.py file in my calculator folder if you have trouble.
+     - Make sure to test these functions by creating fake data in your test folder (see test_calculations.py).
+     - Make sure that the "divide" function has an exception for the division of 0.
+  4. Create class method that allows the calculator to store the operation in an accessible instance property. See calculations.py.
+  5. Create paramaterized test data that tests operations.py, calculations.py, and calculation.py. See files in "test" folder.
