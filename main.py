@@ -1,5 +1,5 @@
 import sys
-import pandas as pd
+# import pandas as pd
 from calculator import Calculator
 from decimal import Decimal, InvalidOperation
 

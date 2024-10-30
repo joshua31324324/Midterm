@@ -1,6 +1,6 @@
-from calculations import Calculations  # Manages history of calculations
-from operations import add, subtract, multiply, divide  # Arithmetic operations
-from calculation import Calculation  # Represents a single calculation
+from calculator.calculations import Calculations  # Manages history of calculations
+from calculator.operations import add, subtract, multiply, divide  # Arithmetic operations
+from calculator.calculation import Calculation  # Represents a single calculation
 from decimal import Decimal  # For high-precision arithmetic
 from typing import Callable  # For type hinting callable objects
 
