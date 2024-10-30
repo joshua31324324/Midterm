@@ -2,8 +2,7 @@ import sys
 import pandas as pd
 import importlib 
 import os
-from calculator import Calculator
-from calculator.plugins import plugins
+from calculator import Calculator, plugins
 from decimal import Decimal, InvalidOperation
 
 
