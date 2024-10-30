@@ -1,8 +1,26 @@
 import sys
+import pandas as pd
 from calculator import Calculator
 from decimal import Decimal, InvalidOperation
 
-from calculator import App    
+from calculator import App
+
+
+history = pd.DataFrame(columns=["Operation", "Result"])
+
+def add_to_history(operation, result):
+    global history
+    new_entry = pd.DataFrame({"Operation": [operation], "Result": [result]})
+    history = pd.concat([history, new_entry], ignore_index=True)
+
+def perform_calculation(expression):
+    try:
+        result = eval(expression)
+        add_to_history(expression, result)
+        return result
+    except Exception as e:
+        return f"Error: {e}"
+
 
 def main():
     if len(sys.argv) != 4:
@@ -14,6 +32,20 @@ def main():
     calculate_and_print(a, b, operation)
     if __name__ == "__main__":
         app = App().start()  # Instantiate an instance of App
+
+def repl():
+    print("Welcome to the Python REPL Calculator. Type 'exit' to quit or 'history' to view calculation history.")
+    while True:
+        expression = input(">>> ")
+        if expression.lower() == 'exit':
+            break
+        elif expression.lower() == 'history':
+            print(history)
+        else:
+            result = perform_calculation(expression)
+            print(result)
+
+repl()
 
 def calculate_and_print(a, b, operation_name):
     operation_mappings = {
@@ -52,3 +84,5 @@ class OperationCommand:
             return operation_method(self.a, self.b)
         else:
             raise ValueError(f"Unknown operation: {self.operation_name}") 
+        
+    
