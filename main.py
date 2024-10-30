@@ -1,9 +1,7 @@
 import sys
-# import pandas as pd
+import pandas as pd
 from calculator import Calculator
 from decimal import Decimal, InvalidOperation
-
-from calculator import App
 
 
 history = pd.DataFrame(columns=["Operation", "Result"])
@@ -31,7 +29,7 @@ def main():
     
     calculate_and_print(a, b, operation)
     if __name__ == "__main__":
-        app = App().start()  # Instantiate an instance of App
+        app = Calculator().start()  # Instantiate an instance of App
 
 def repl():
     print("Welcome to the Python REPL Calculator. Type 'exit' to quit or 'history' to view calculation history.")
