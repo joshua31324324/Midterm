@@ -26,10 +26,10 @@ You must also create a GitHub account.
 <<<<<<< Updated upstream
 ## Creating the Calculator
 Now that you've set up your environment, it's time to create the calculator.
-  1. Create the "calculator" folder (you may name it whatever you want as long as you remain consistent). It will contain the files for your application.
+  1. Create the "app" folder (you may name it whatever you want as long as you remain consistent). It will contain the files for your application.
   2. Add __init__.py files to the folder so the Python interpreter recognizes it as a packages.
-     - While you don't have to, it is recommended to create a Calculator class so it is easier to work with class-level date. See __init__.py file in "calculator" folder.
-  3. Add files detailing the calculator's operations (Addition, subtraction, multiplication, and division). Observe the operations.py file in my calculator folder if you have trouble.
+     - While you don't have to, it is recommended to create a Calculator class so it is easier to work with class-level date. See __init__.py file in "app" folder.
+  3. Add files detailing the calculator's operations (Addition, subtraction, multiplication, and division). Observe the operations.py file in my app folder (named "calculator") if you have trouble.
      - Make sure that the "divide" function has an exception for the division of 0.
   4. Create class method that allows the calculator to store the operation in an accessible instance property. See calculations.py.
 ## Creating test data
@@ -40,10 +40,14 @@ Before you publish your calculator, you need to create test data to make sure it
      - Fixtures: provide a fixed baseline or setup required for your tests
      - Hooks: let you modify or extend the behavior of pytest
   5. Create paramaterized test data that tests operations.py, calculations.py, and calculation.py. See files in "test" folder.
-=======
-## Building the Calculator
-Now that you've set up your GitHub repository, it's time to create a calculator. This calculator will add, subtract, multiply, divide, and store a history of calculations.
-  1. Create your "calculator" and "test" folders. The calculator (or whatever you name it) will contain the files for the actual application, while the test folders will contain files for testing it.
-  2. Add the __init__.py file to both folders. Otherwise, your computer will not accept the folders as a package.
-     - The __init__.py file can have 
->>>>>>> Stashed changes
+## Adding plugins
+You will need to create a flexible plugin system to help integrate new features. However, before you do that, you will need to create a REPL loop, so the user can interact with it.
+  1. Create a main.py file in your project's main directory. **This is essential** because it functions as the entrance to the app.
+     - Make sure to import your files from the "app" folder to the main.py. This is so the app's functions can work outside its folder.
+     - Define the "main" and any other app-wide functions. This is what operates first when you first boot up your calculator. See my sample main.py for help.
+  2. Edit __init__.py of app folder to add code that will automatically load plugins when the app is created. See app/init.py.
+  3. Create command package (same way you created your previous ones), and create classes that allow you to execute commands (see app/commands/init.py).
+  4. Next to (**NOT IN**) command package, create plugin package. **Inside** the package, add your plugins (some sample could be a greeting and exiting plugin.)
+     - Your plugins **MUST** be their own packages, else the code won't work.
+  5. Test your code using pytest. Is there a shell the user can use to interact with your project? Then you've made your REPL loop!
+     - Otherwise, edit your code until it doesn't have any mistakes in it.
