@@ -51,3 +51,8 @@ You will need to create a flexible plugin system to help integrate new features.
      - Your plugins **MUST** be their own packages, else the code won't work.
   5. Test your code using pytest. Is there a shell the user can use to interact with your project? Then you've made your REPL loop!
      - Otherwise, edit your code until it doesn't have any mistakes in it.
+## Prepare for Deployment
+Finally, you will need to prepare your app for deployment.
+  1. Use Github Actions (they are found on top of your repository's toolbar), and use an Action to help deploy your app.
+  2. Add logging code.
+  3. Add environmental variables.
