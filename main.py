@@ -2,6 +2,7 @@ import sys, importlib, os
 from dotenv import load_dotenv
 import pandas as pd
 from calculator import Calculator, plugins
+from calculator.plugins import exit, greet, menu
 from decimal import Decimal, InvalidOperation
 
 
