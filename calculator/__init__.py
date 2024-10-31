@@ -1,12 +1,12 @@
-from calculations import Calculations  # Manages history of calculations
-from operations import add, subtract, multiply, divide  # Arithmetic operations
-from calculation import Calculation  # Represents a single calculation
-from commands import CommandHandler, Command
+from calculator.calculations import Calculations  # Manages history of calculations
+from calculator.operations import add, subtract, multiply, divide  # Arithmetic operations
+from calculator.calculation import Calculation  # Represents a single calculation
+from calculator.commands import CommandHandler, Command
 from decimal import Decimal  # For high-precision arithmetic
 from typing import Callable  # For type hinting callable objects
-import sys, importlib, os, pkgutil
 from dotenv import load_dotenv
-import logging, logging.config
+import sys, importlib, os, pkgutil, logging, logging.config
+
 class Calculator:
     @staticmethod
     def _perform_operation(a: Decimal, b: Decimal, operation: Callable[[Decimal, Decimal], Decimal]) -> Decimal:
@@ -38,6 +38,7 @@ class Calculator:
         # Perform division by delegating to the _perform_operation method with the divide operation
         return Calculator._perform_operation(a, b, divide)
 
+    @staticmethod
     def __init__(self):
         os.makedirs('logs', exist_ok=True)
         self.configure_logging()
@@ -45,7 +46,7 @@ class Calculator:
         self.settings = self.load_environment_variables()
         self.settings.setdefault('ENVIRONMENT', 'PRODUCTION')
         self.command_handler = CommandHandler()
-
+    @staticmethod
     def configure_logging(self):
         logging_conf_path = 'logging.conf'
         if os.path.exists(logging_conf_path):
@@ -53,15 +54,15 @@ class Calculator:
         else:
             logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
         logging.info("Logging configured.")
-
+    @staticmethod
     def load_environment_variables(self):
         settings = {key: value for key, value in os.environ.items()}
         logging.info("Environment variables loaded.")
         return settings
-
+    @staticmethod
     def get_environment_variable(self, env_var: str = 'ENVIRONMENT'):
         return self.settings.get(env_var, None)
-
+    @staticmethod
     def load_plugins(self):
         plugins_package = 'app.plugins'
         plugins_path = plugins_package.replace('.', '/')
@@ -75,7 +76,7 @@ class Calculator:
                     self.register_plugin_commands(plugin_module, plugin_name)
                 except ImportError as e:
                     logging.error(f"Error importing plugin {plugin_name}: {e}")
-
+    @staticmethod
     def register_plugin_commands(self, plugin_module, plugin_name):
         for item_name in dir(plugin_module):
             item = getattr(plugin_module, item_name)
@@ -83,7 +84,7 @@ class Calculator:
                 # Command names are now explicitly set to the plugin's folder name
                 self.command_handler.register_command(plugin_name, item())
                 logging.info(f"Command '{plugin_name}' from plugin '{plugin_name}' registered.")
-
+    @staticmethod
     def start(self):
         self.load_plugins()
         logging.info("Application started. Type 'exit' to exit.")
