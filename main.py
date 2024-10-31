@@ -1,7 +1,6 @@
-import sys
+import sys, importlib, os
+from dotenv import load_dotenv
 import pandas as pd
-import importlib 
-import os
 from calculator import Calculator, plugins
 from decimal import Decimal, InvalidOperation
 
@@ -114,4 +113,11 @@ class OperationCommand:
         else:
             raise ValueError(f"Unknown operation: {self.operation_name}") 
         
-    
+load_dotenv()
+secret_key = os.getenv('SECRET_KEY')
+database_url = os.getenv('DATABASE_URL')
+debug_mode = os.getenv('DEBUG')
+
+print(f"Secret Key: {secret_key}")
+print(f"Database URL: {database_url}")
+print(f"Debug Mode: {debug_mode}")
