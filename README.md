@@ -55,6 +55,15 @@ Finally, you will need to prepare your app for deployment.
   3. Add environmental variables.
 ## Programming Styles
 ### Look Before You Leap (LBYL)
-  - THE LBYL approach involves checking conditions before performing an operation to avoid potential errors. It is used when the function is less likely to work, and is exhibited through if/else statements. See [main.py](main.py), [test/__init.py](tests/__init__.py), and [calculator/commands/__init__.py](calculator/commands/__init__.py).
+  - THE LBYL approach involves checking conditions before performing an operation to avoid potential errors. It is used when the function is less likely to work, and is exhibited through if/else statements.
+    - For example, in [main.py](main.py), an if/else statement is used to ensure whether operation_method exists before accessing it to avoid a KeyError.
+      <p align="center">
+      <img width="492" alt="image" src="https://github.com/user-attachments/assets/6b0f40a3-0c07-4852-836a-b8afe6604b5f">
+      </p>
+
 ### Easier to Ask for Forgiveness than Permission (EAFP)
   - The EAFP approach involves trying the operation directly and handling exceptions. It is used when the function may work, and is exhibited through try/except statements. See [tests/conftest.py](tests/conftest.py), [calculator/commands/__init__.py](calculator/commands/__init__.py), and [main.py](main.py).
+    - For example, in [tests/conftest.py](tests/conftest.py), while generating test data, the function uses a try/except statement to test if the function divides by 0 or not. It expects to get a ZeroDivisionError if a number is divided by 0.
+      <p align="center">
+      <img width="329" alt="image" src="https://github.com/user-attachments/assets/5812055d-a244-4906-83f6-a836e45e708e">
+      </p>
