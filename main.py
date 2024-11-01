@@ -45,7 +45,6 @@ def repl():
             result = perform_calculation(expression)
             print(result)
 
-repl()
 
 def calculate_and_print(a, b, operation_name):
     operation_mappings = {
@@ -72,7 +71,8 @@ def calculate_and_print(a, b, operation_name):
         
 def load_plugins(plugin_folder):
     plugins = {}
-    for filename in os.listdir(plugin_folder):
+    for filename in os.listdir("calculator\\plugins"):
+        print('filename:',filename)
         if filename.endswith(".py") and filename != "__init__.py":
             module_name = filename[:-3]
             module = importlib.import_module(f"plugins.{module_name}")
@@ -111,3 +111,8 @@ class OperationCommand:
             return operation_method(self.a, self.b)
         else:
             raise ValueError(f"Unknown operation: {self.operation_name}") 
+
+
+
+plugins = load_plugins('plugins')
+repl('plugins')
