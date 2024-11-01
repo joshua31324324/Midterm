@@ -9,7 +9,8 @@ You must download:
      - In this tutorial, I will be using VS Code.
   - GitHub Desktop (to have an easy backup in case of emergencies)
   - The latest version of Python
-You must also create a GitHub account.
+<p>You must also create a GitHub account.</p>
+  
 ## Setting Up Development
   1. Create your GitHub Repository. If needed, clone the repository to GitHub Desktop, and open it in your own directory/VS Code.
   2. If you haven't already, install python virtual environment. You do so by inputing "pip3 install virtualenv" into the command line of your terminal.
@@ -62,8 +63,17 @@ Finally, you will need to prepare your app for deployment.
       </p>
 
 ### Easier to Ask for Forgiveness than Permission (EAFP)
-  - The EAFP approach involves trying the operation directly and handling exceptions. It is used when the function may work, and is exhibited through try/except statements. See [tests/conftest.py](tests/conftest.py), [calculator/commands/__init__.py](calculator/commands/__init__.py), and [main.py](main.py).
+  - The EAFP approach involves trying the operation directly and handling exceptions. It is used when the function may work, and is exhibited through try/except statements. 
     - For example, in [tests/conftest.py](tests/conftest.py), while generating test data, the function uses a try/except statement to test if the function divides by 0 or not. It expects to get a ZeroDivisionError if a number is divided by 0.
       <p align="center">
       <img width="329" alt="image" src="https://github.com/user-attachments/assets/5812055d-a244-4906-83f6-a836e45e708e">
       </p>
+## Design Patterns 
+Your application will likely have several design patterns to help solve common problems in software design. Here are some of them:
+### Creational Patterns 
+The Factory Method defines a method that can create new objects without specifying their exact classes.
+  -  For example, in [calculator\commands\__init__.py](calculator\commands\__init__.py), the factory method is used to easily create commands that can be used inside the app.
+### Behavioral Patterns 
+The Command Method converts requests/simple operations into objects.
+  - Again, in [calculator\commands\__init__.py](calculator\commands\__init__.py), a Command Method is used to delegate operations to other objects.
+<p align="center"><img width="633" alt="image" src="https://github.com/user-attachments/assets/35c870b3-bb0f-4095-9cfd-731399bdbf1f"></p>
