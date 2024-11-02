@@ -1,13 +1,9 @@
 # main.py
 
-import sys
-import importlib
-import os
-import logging
+import sys, importlib, os, logging
 import pandas as pd
 from calculator import Calculator
 from calculator.commands import CommandHandler
-from calculator.plugins import exit, greet, menu
 from decimal import Decimal, InvalidOperation
 from dotenv import load_dotenv
 
@@ -126,6 +122,8 @@ def plugRepl(plugins):
             print("Available commands:")
             for name in plugins.keys():
                 print(name)
+        elif command.lower() == 'greet':
+            return plugins.greet
         elif command in plugins:
             args = input("Enter arguments separated by spaces: ").split()
             result = plugins[command].execute(*args)
