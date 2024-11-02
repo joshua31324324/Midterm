@@ -80,4 +80,6 @@ Finally, you will need to prepare your app for deployment.
   2. Add logging code. See [basic.log](basic.log).
   3. Add environmental variables. See [dotenv.env](dotenv.env).
 ## Instructor Video 
-[Recording 2024-11-01 225335 (1).mp4](Recording 2024-11-01 225335 (1).mp4)
+https://github.com/user-attachments/assets/763f5ef3-d78c-4606-bdef-6a0158e5eaab
+
+
