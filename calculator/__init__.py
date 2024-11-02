@@ -4,7 +4,6 @@ from calculator.calculation import Calculation  # Represents a single calculatio
 from calculator.commands import CommandHandler, Command
 from decimal import Decimal  # For high-precision arithmetic
 from typing import Callable  # For type hinting callable objects
-from dotenv import load_dotenv
 import sys, importlib, os, pkgutil, logging, logging.config
 
 class Calculator:
@@ -38,22 +37,7 @@ class Calculator:
         # Perform division by delegating to the _perform_operation method with the divide operation
         return Calculator._perform_operation(a, b, divide)
 
-    @staticmethod
-    def __init__(self):
-        os.makedirs('logs', exist_ok=True)
-        self.configure_logging()
-        load_dotenv()
-        self.settings = self.load_environment_variables()
-        self.settings.setdefault('ENVIRONMENT', 'PRODUCTION')
-        self.command_handler = CommandHandler()
-    @staticmethod
-    def configure_logging(self):
-        logging_conf_path = 'logging.conf'
-        if os.path.exists(logging_conf_path):
-            logging.config.fileConfig(logging_conf_path, disable_existing_loggers=False)
-        else:
-            logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-        logging.info("Logging configured.")
+    
     @staticmethod
     def load_environment_variables(self):
         settings = {key: value for key, value in os.environ.items()}
