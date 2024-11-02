@@ -79,4 +79,5 @@ Finally, you will need to prepare your app for deployment.
   1. Use Github Actions (they are found on top of your repository's toolbar), and use an Action to help deploy your app.
   2. Add logging code. See [basic.log](basic.log).
   3. Add environmental variables. See [dotenv.env](dotenv.env).
-
+## Instructor Video 
+[Recording 2024-11-01 225335 (1).mp4](Recording 2024-11-01 225335 (1).mp4)
